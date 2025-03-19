@@ -31,6 +31,7 @@ classifiers = [
 ]
 dependencies = [
     "copier>=9.6.0",
+    "python-dotenv>=1.0.1",
 ]
 
 [project.urls]
