@@ -21,6 +21,10 @@ def check_name(name: str, avoid_names: list[str]):
     return True
 
 
+def format_name(name: str):
+    return name.lower().strip().replace(" ", "_").replace("-", "_")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Create new uv script with name:")
     parser.add_argument("name", type=str, help="Name of script/library")
@@ -34,12 +38,15 @@ def main():
         )
         exit()
 
-    script_path = Path(SCRIPT_DIR) / script_name
-    print(f"\n\nCreating new script '{script_name}' at location: {script_path}\n\n")
+    script_root = Path(SCRIPT_DIR)
+    formatted_name = format_name(script_name)
+    script_path = script_root / formatted_name
+
+    print(f"\n\nCreating new script '{formatted_name}' at location: {script_path}\n\n")
     script_path.mkdir(parents=True, exist_ok=True)
     creation_data = {
-        "project_name": script_name,
-        "project_description": f"{script_name.capitalize()} script.",
+        "project_name": formatted_name,
+        "project_description": f"{formatted_name.capitalize()} script.",
     }
     # """
     copier.run_copy(

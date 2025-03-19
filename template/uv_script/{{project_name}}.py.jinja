@@ -1,9 +1,28 @@
-# {{project_name}} Script:
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "pyyaml",
+#     "python-box",
+# ]
+# ///
 
+# {{project_name}} script. 
+
+import argparse
+
+from pathlib import Path
+
+# Main function:
 def main():
-  """Main function for the {{project_name}} script."""
-  print("Hello, {{project_name}}!")
+    """Main function for the {{project_name}} script."""
+    parser = argparse.ArgumentParser(description="Argparse description.")
+    parser.add_argument("name", type=str, help="Name:")
+    args = parser.parse_args()
+    script_name = args.name
+
+    print("Hello, {{project_name}}!")
 
 if __name__ == "__main__":
-  main()
+    main()
 
