@@ -30,7 +30,7 @@ def main():
     script_name = args.name
     if not check_name(script_name, avoid_names):
         print(
-            f"Name '{script_name}' already exists in the template directory. Try a different name."
+            f"Name '{script_name}' already exists in the scripts directory. Try a different name."
         )
         exit()
 
