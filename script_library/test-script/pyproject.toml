@@ -3,10 +3,10 @@ requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [project]
-name = "{{ python_package_distribution_name }}"
-description = "{{ project_description }}"
-authors = [{name = "{{ author_fullname }}", email = "{{ author_email }}"}]
-license = "{{ copyright_license }}"
+name = "test-script"
+description = "Test-script script."
+authors = [{name = "Bullish Design", email = "bullishdesignengineering@gmail.com"}]
+license = "ISC"
 license-files = ["LICENSE"]
 readme = "README.md"
 requires-python = ">=3.12"
@@ -29,21 +29,15 @@ classifiers = [
     "Topic :: Utilities",
     "Typing :: Typed",
 ]
-
 dependencies = [
   "python-dotenv>=1.0.1",
-  "pre-commit>=4.2.0",
-
 ]
 
 [project.urls]
-Homepage = "https://{{ repository_namespace }}.{{ repository_provider.rsplit('.', 1)[0] }}.io/{{ repository_name }}"
+Homepage = "https://Bullish-Design.github.io/test-script"
 
-{% if python_package_command_line_name -%}
 [project.scripts]
-{{ python_package_command_line_name }} = "{{ python_package_import_name }}.cli:main"
-
-{% endif -%}
+test-script = "test-script.cli:main"
 
 #[tool.pdm.version]
 #source = "call"
